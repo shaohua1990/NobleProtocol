@@ -1,0 +1,62 @@
+Overview: 
+	Containers: a contianer to wrap site contents and house our grid system. (container is not nestable)
+	.container: responsive fixed width
+	.container-fluid: spanning the entire width of your viewport
+
+
+Bootstrap grid:
+	three equal columns: .col-md-4 : it will become stack when on mobile device
+
+	Rows must be placed within container
+	rows to create horizontal groups of columns
+	only conlumns may be immeditate children of rows
+	(.row, .col-xs-4) for quickly marking grid layouts??
+
+
+
+	------------------------
+	examples:
+	1. Media queries:
+		a fancy term for "conditional CSS rule"
+		Different class, to see which one is dominating.
+		(zoom=> screen resolution decrease, but keep same.)
+		frame---> screen resolution does not change, but the size of the window get smaller
+
+	2. How grid system works on different devices? 
+	Grid options
+	See how aspects of the Bootstrap grid system work across multiple devices with a handy table.
+
+	                Extra smallPhones (<768px)|	 Small devices Tablets (≥768px)|	 Medium devices Desktops (≥992px)|	 Large devices Desktops (≥1200px)
+	Grid behavior	Horizontal at all times											|Collapsed to start, horizontal above breakpoints
+	Container width	None (auto)									750px								970px									1170px
+	Class prefix	.col-xs-									.col-sm-							.col-md-								.col-lg-
+	# of columns	12
+	Column width	Auto										~62px								~81px									~97px
+	Gutter width	30px (15px on each side of a column)
+	Nestable			Yes
+	Offsets				Yes
+	Column ordering		Yes
+
+
+	Testing cases: (stack when on the tablet no matter the colums number)
+	Coulumn Wrapping:
+		more than 12, the exceeding part wrap to the next time as a unit. 
+
+		col-md-offset-*; left offset
+
+	Nesting columns: put one row in another column
+	Column Ordering: push and pull used to change the order of columns.  .col-md-push-*(to the left) .col-md-pull-*(to the right)
+
+
+	<pre></pre> -------- to show the stand alone code block
+	<code></code> ----- colorful block
+
+
+
+
+Bootstrap table:
+	Contextual classes: allow to change the background colors of individual row or individual table
+	(.active, .success, .warning, .danger)
+
+	s8678490d 1986 10 8
+

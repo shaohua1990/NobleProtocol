@@ -1,0 +1,7 @@
+C:\ADrive\NobleProtocol\WeeklyExercise\Exercise.UnitTests\bin\Debug\Exercise.UnitTests.dll
+C:\ADrive\NobleProtocol\WeeklyExercise\Exercise.UnitTests\bin\Debug\Exercise.UnitTests.pdb
+C:\ADrive\NobleProtocol\WeeklyExercise\Exercise.UnitTests\bin\Debug\nunit.framework.dll
+C:\ADrive\NobleProtocol\WeeklyExercise\Exercise.UnitTests\bin\Debug\nunit.framework.xml
+C:\ADrive\NobleProtocol\WeeklyExercise\Exercise.UnitTests\obj\Debug\Exercise.UnitTests.csprojResolveAssemblyReference.cache
+C:\ADrive\NobleProtocol\WeeklyExercise\Exercise.UnitTests\obj\Debug\Exercise.UnitTests.dll
+C:\ADrive\NobleProtocol\WeeklyExercise\Exercise.UnitTests\obj\Debug\Exercise.UnitTests.pdb
