@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Web;
 /// <summary>
 /// Summary description for Helper
@@ -23,10 +25,8 @@ namespace DalAndErrorHandling
         } 
 
         public static void KickOut()
-        {
-            var currentResponse = HttpContext.Current.Response;
-            string hostName = System.Net.Dns.GetHostName();
-            //currentResponse.Redirect("~" + CRPFolder + "/login");
+        { 
+            HttpContext.Current.Response.Redirect("login.aspx");
         }
 
         public static string GetResponseJson<T>(Dictionary<string, T> response)

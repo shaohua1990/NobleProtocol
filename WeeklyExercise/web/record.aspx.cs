@@ -1,28 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using DalAndErrorHandling;
 
-public partial class web_register : System.Web.UI.Page
+public partial class web_record : System.Web.UI.Page 
 {
-    protected string PostRegisterModal = string.Empty;
+    protected string PostRecordModal = string.Empty;
     protected void Page_Load(object sender, EventArgs e)
     {
-        PostRegisterModal = GetPostRegisterModal();
+        if (Session["username"] == null)
+            Helper.KickOut();
+        PostRecordModal = GetPostRecordModal();
     }
 
-    private string GetPostRegisterModal()
+    private string GetPostRecordModal()
     {
         Template templateInstance = new Template();
         templateInstance.LoadTemplate("modal.tmpl");
         string tmpl = templateInstance.GetTempalteUseXpath("Post-Response-Modal");
         tmpl = HttpUtility.HtmlDecode(tmpl);
-        Template.ReplaceInTemplate(ref tmpl, "_{Modal_Id}_", "postRegisterModal");
-        Template.ReplaceInTemplate(ref tmpl, "_{Modal_Label}_", "postRegisterLabel");
+        Template.ReplaceInTemplate(ref tmpl, "_{Modal_Id}_", "postRecordModal");
+        Template.ReplaceInTemplate(ref tmpl, "_{Modal_Label}_", "postRecordLabel");
         return tmpl;
     }
 }

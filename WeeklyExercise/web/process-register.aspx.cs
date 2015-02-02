@@ -24,7 +24,8 @@ public partial class web_process_register : System.Web.UI.Page
                     fail = false
                 }
             };
-            Session["name"] = member.Name;
+            Session["username"] = member.Name;
+            Session["memberId"] = member.GetMemberIdByName();
             Response.Write(Helper.GetResponseJson(list));
         }
         else

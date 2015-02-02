@@ -23,6 +23,8 @@ public partial class web_process_login : System.Web.UI.Page
                     IsLogin = "true"
                 }
             };
+            Session["username"] = member.Name;
+            Session["memberId"] = member.MemberId;
             Response.Write(Helper.GetResponseJson(result));
         } 
     }

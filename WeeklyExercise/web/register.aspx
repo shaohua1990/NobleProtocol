@@ -81,7 +81,7 @@
         }
 
         function showModal(text) {
-            $('#post-register-alert-body').html(text);
+            $('#post-response-alert-body').html(text);
             $('#postRegisterModal').modal('show');
         }
     </script>

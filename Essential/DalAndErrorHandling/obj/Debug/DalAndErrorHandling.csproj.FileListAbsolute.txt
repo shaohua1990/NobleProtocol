@@ -17,3 +17,4 @@ C:\ADrive\NobleProtocol\Essential\DalAndErrorHandling\bin\Debug\DalAndErrorHandl
 C:\ADrive\NobleProtocol\Essential\DalAndErrorHandling\bin\Debug\DalAndErrorHandling.pdb
 C:\ADrive\NobleProtocol\Essential\DalAndErrorHandling\obj\Debug\DalAndErrorHandling.dll
 C:\ADrive\NobleProtocol\Essential\DalAndErrorHandling\obj\Debug\DalAndErrorHandling.pdb
+C:\ADrive\NobleProtocol\Essential\DalAndErrorHandling\obj\Debug\DalAndErrorHandling.csprojResolveAssemblyReference.cache

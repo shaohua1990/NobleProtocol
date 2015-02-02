@@ -47,6 +47,7 @@
             event.preventDefault();
         }
     </script>
+</head>
 <body>
     <div class="container" > 
       <form class="form-signin" role="form">
@@ -66,6 +67,7 @@
         <button class="btn btn-lg btn-primary btn-block" onclick="register();">Register</button>  
       </form> 
     </div>
+</body>
      
 </html>
 

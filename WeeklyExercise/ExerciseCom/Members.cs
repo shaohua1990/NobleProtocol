@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -51,8 +52,23 @@ namespace ExerciseCom
             DataTable dt = dal.GetDataTableWithParam();
             dal.CloseCn();
             if (dt.Rows.Count > 0)
-                return true;
+            {
+                MemberId = int.Parse(dt.Rows[0]["memberId"].ToString());
+                return true;  
+            }
             return false;
+        }
+
+        public int GetMemberIdByName()
+        {
+            string sql = "select memberId from members where username = @username";
+            dal.ConnectDB();
+            dal.SetSqlCommand(sql);
+            dal.AddParam("@username", Name, SqlDbType.VarChar);
+            DataTable dt = dal.GetDataTableWithParam();
+            dal.CloseCn();
+            MemberId = int.Parse(dt.Rows[0]["memberId"].ToString());
+            return MemberId;
         }
     } 
 }
