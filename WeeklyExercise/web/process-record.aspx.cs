@@ -36,7 +36,7 @@ public partial class web_process_record : System.Web.UI.Page
         record.Running = float.Parse(Request["running"]);
         record.PushUp = int.Parse(Request["pushup"]);
         record.SitUp = int.Parse(Request["situp"]);
-        record.Running = int.Parse(Request["reading"]);
+        record.Reading = int.Parse(Request["reading"]);
         if (record.Write())
         {
             List<object> list = new List<object>()

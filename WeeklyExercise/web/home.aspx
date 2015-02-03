@@ -49,6 +49,14 @@
 	</nav>
     
     <div style="position: relative;top:-20px" ng-app="RecordDisplayApp" ng-controller="RecordDisplayCtrl">
+        <a class="list-group-item list-group-item-info">
+            <p class="alert alert-warning" >    
+            <b style="margin-right:20px;">Total Running: </b> {{total_running}}km <br/>
+            <b style="margin-right:25px;">Total Pushup:  </b> {{total_pushup}} <br/>
+            <b style="margin-right:40px;">Total Situp:   </b> {{total_situp}} <br/>
+            <b style="margin-right:20px;">Total Reading: </b> {{total_reading}} <br/>
+            </p>
+        </a>
         <a class="list-group-item list-group-item-info" ng-repeat="record in records">
             <p class="{{getClassName(record.recordClass)}}" >  
             <b style="margin-right:46px;">Date:    </b> {{record.tstamp}} <br/>  
@@ -65,7 +73,17 @@
         RecordDisplayApp.controller("RecordDisplayCtrl", function ($scope, $http) {
             $http.get("process-record.aspx?action=readForHomeDisplay").success(
             function(response) {
-                $scope.records = response; 
+                $scope.records = response;
+                $scope.total_running = 0;
+                $scope.total_pushup = 0;
+                $scope.total_situp = 0;
+                $scope.total_reading = 0;
+                for (var i = 0; i < response.length; i++) {
+                    $scope.total_running += response[i].running;
+                    $scope.total_pushup += response[i].pushup;
+                    $scope.total_situp += response[i].situp;
+                    $scope.total_reading += response[i].reading;
+                }
             }); 
 
             $scope.getClassName = function(param) {
