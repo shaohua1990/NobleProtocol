@@ -44,6 +44,7 @@
 	   <div class="collapse navbar-collapse" id="otherPageMenu">
 	      <ul class="nav navbar-nav">
 	         <li><a href="record.aspx">Add Record</a></li> 
+	         <li><a href="friends.aspx">Friends</a></li> 
 	      </ul>
 	   </div>
 	</nav>
@@ -60,7 +61,7 @@
         <a class="list-group-item list-group-item-info" ng-repeat="record in records">
             <p class="{{getClassName(record.recordClass)}}" >  
             <b style="margin-right:46px;">Date:    </b> {{record.tstamp}} <br/>  
-            <b style="margin-right:20px;">Running: </b> {{record.running}}km <br/>
+            <b style="margin-right:20px;">Running: </b> {{record.running.toFixed(1)}}km <br/>
             <b style="margin-right:25px;">Pushup:  </b> {{record.pushup}} <br/>
             <b style="margin-right:40px;">Situp:   </b> {{record.situp}} <br/>
             <b style="margin-right:20px;">Reading: </b> {{record.reading}} <br/>
@@ -84,6 +85,7 @@
                     $scope.total_situp += response[i].situp;
                     $scope.total_reading += response[i].reading;
                 }
+                $scope.total_running = $scope.total_running.toFixed(1); 
             }); 
 
             $scope.getClassName = function(param) {

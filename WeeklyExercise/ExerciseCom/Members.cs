@@ -70,5 +70,24 @@ namespace ExerciseCom
             MemberId = int.Parse(dt.Rows[0]["memberId"].ToString());
             return MemberId;
         }
+
+        public List<object> GetFriends()
+        {
+            string sql = "select memberId, username from members";
+            dal.ConnectDB();
+            dal.SetSqlCommand(sql);
+            DataTable dt = dal.GetDataTableWithParam();
+            dal.CloseCn();
+            List<object> result = new List<object>();
+            foreach (DataRow row in dt.Rows)
+            {
+                result.Add(new
+                {
+                    MemberId = row.Field<int>("memberId"),
+                    Name = row.Field<string>("username")
+                });
+            }
+            return result;
+        }
     } 
 }
