@@ -51,12 +51,26 @@
     
     <div style="position: relative;top:-20px" ng-app="RecordDisplayApp" ng-controller="RecordDisplayCtrl">
         <a class="list-group-item list-group-item-info">
-            <p class="alert alert-warning" >    
-            <b style="margin-right:20px;">Total Running: </b> {{total_running}}km <br/>
-            <b style="margin-right:25px;">Total Pushup:  </b> {{total_pushup}} <br/>
-            <b style="margin-right:40px;">Total Situp:   </b> {{total_situp}} <br/>
-            <b style="margin-right:20px;">Total Reading: </b> {{total_reading}} <br/>
+            <div style="display: inline-block;width: 100%">
+            <div style="width: 50%;float: left">
+            <p class="alert alert-warning" > 
+                <b style="margin-right:20px;">This Week</b><br/> 
+                <b style="margin-right:20px;">Total Running: </b> {{total_running}}km <br/>
+                <b style="margin-right:25px;">Total Pushup:  </b> {{total_pushup}} <br/>
+                <b style="margin-right:40px;">Total Situp:   </b> {{total_situp}} <br/>
+                <b style="margin-right:20px;">Total Reading: </b> {{total_reading}} <br/>
             </p>
+            </div>
+            <div style="width: 50%;display: inline-block">
+            <p class="alert alert-warning" > 
+                <b style="margin-right:20px;">Last Week</b><br/> 
+                <b style="margin-right:20px;">Total Running: </b> {{last_total_running}}km <br/>
+                <b style="margin-right:25px;">Total Pushup:  </b> {{last_total_pushup}} <br/>
+                <b style="margin-right:40px;">Total Situp:   </b> {{last_total_situp}} <br/>
+                <b style="margin-right:20px;">Total Reading: </b> {{last_total_reading}} <br/>
+            </p>
+            </div>
+            </div>
         </a>
         <a class="list-group-item list-group-item-info" ng-repeat="record in records">
             <p class="{{getClassName(record.recordClass)}}" >  
@@ -86,7 +100,22 @@
                     $scope.total_reading += response[i].reading;
                 }
                 $scope.total_running = $scope.total_running.toFixed(1); 
-            }); 
+            });
+            $http.get("process-record.aspx?action=readMyLastWeekTotal").success(
+            function (response) {
+                $scope.last_total_running = 0;
+                $scope.last_total_pushup = 0;
+                $scope.last_total_situp = 0;
+                $scope.last_total_reading = 0;
+                if (response[0].lastweek_total_running)
+                    $scope.last_total_running = response[0].lastweek_total_running.toFixed(1);
+                if (response[0].lastweek_total_pushup)
+                    $scope.last_total_pushup = response[0].lastweek_total_pushup;
+                if (response[0].lastweek_total_situp)
+                    $scope.last_total_situp = response[0].lastweek_total_situp;
+                if (response[0].lastweek_total_reading)
+                    $scope.last_total_reading = response[0].lastweek_total_reading;
+            });
 
             $scope.getClassName = function(param) {
                 if (param)

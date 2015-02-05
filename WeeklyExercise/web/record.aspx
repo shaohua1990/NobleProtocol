@@ -91,6 +91,7 @@
 	   <div class="collapse navbar-collapse" id="otherPageMenu">
 	      <ul class="nav navbar-nav">
 	         <li><a href="home.aspx">Home</a></li> 
+	         <li><a href="friends.aspx">Friends</a></li> 
 	      </ul>
 	   </div>
 	</nav>

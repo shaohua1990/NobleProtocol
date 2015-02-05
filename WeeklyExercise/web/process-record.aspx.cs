@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
-using DalAndErrorHandling;
+using System.Web.UI.WebControls; 
 using ExerciseCom;
+using WeeklyExerciseDalAndErrorHandling;
 
 public partial class web_process_record : System.Web.UI.Page
 {
@@ -21,11 +21,44 @@ public partial class web_process_record : System.Web.UI.Page
         {
             ReadRecord(record);
         }
+        if (action == "readFirendsRecord")
+        {
+            ReadFriendRecord(record);
+        }
+        if (action == "readMyLastWeekTotal")
+        {
+            ReadMyLastWeekTotal(record);
+        }
+        if (action == "readFriendLastWeekTotal")
+        {
+            ReadFriendLastWeekTotal(record);
+        }
+    }
+
+    private void ReadFriendLastWeekTotal(ExerciseRecord record)
+    {
+        record.MemberId = int.Parse(Request["friendId"]);
+        var result = record.ReadTotalForLastWeek();
+        Response.Write(Helper.GetResponseJson(result));
+    }
+
+    private void ReadMyLastWeekTotal(ExerciseRecord record)
+    {
+        record.MemberId = int.Parse(Session["memberId"].ToString());
+        var result = record.ReadTotalForLastWeek();
+        Response.Write(Helper.GetResponseJson(result));
     }
 
     private void ReadRecord(ExerciseRecord record)
     {
-        record.MemberId = int.Parse(Session["memberId"].ToString()); 
+        record.MemberId = int.Parse(Session["memberId"].ToString());
+        var result = record.ReadForHomeDisplay();
+        Response.Write(Helper.GetResponseJson(result));
+    }
+
+    private void ReadFriendRecord(ExerciseRecord record)
+    {
+        record.MemberId = int.Parse(Request["friendId"]); 
         var result = record.ReadForHomeDisplay();
         Response.Write(Helper.GetResponseJson(result));
     }
