@@ -1,0 +1,90 @@
+To Create table members: 
+USE [WeeklyExercise]
+GO
+
+/****** Object:  Table [dbo].[members]    Script Date: 02/05/2015 20:17:22 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[members](
+	[memberId] [int] IDENTITY(1,1) NOT NULL,
+	[username] [varchar](32) NULL,
+	[password] [varchar](32) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[memberId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+-------------------------------------------------------------------------------------
+To create table record: 
+USE [WeeklyExercise]
+GO
+
+/****** Object:  Table [dbo].[record]    Script Date: 02/05/2015 20:18:49 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[record](
+	[recordId] [int] IDENTITY(1,1) NOT NULL,
+	[memberId] [int] NULL,
+	[timestamp] [datetime] NOT NULL,
+	[running] [float] NULL,
+	[pushup] [int] NULL,
+	[situp] [int] NULL,
+	[reading] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[recordId] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [dbo].[record]  WITH CHECK ADD FOREIGN KEY([memberId])
+REFERENCES [dbo].[members] ([memberId])
+GO
+
+
+------------------------------------------------------------------------------
+SP created: 
+USE [WeeklyExercise]
+GO
+/****** Object:  StoredProcedure [dbo].[WeeklyExercise_CheckNameIsUnique_15.01]    Script Date: 02/05/2015 20:19:14 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+Create PROCEDURE [dbo].[WeeklyExercise_CheckNameIsUnique_15.01]  
+	@username varchar(32),
+	@isUnique int output
+AS
+BEGIN 
+	SET NOCOUNT ON;  
+	if not exists (select * from members where username = @username) 
+		select @isUnique = 1 
+	else
+		select @isUnique = 0 
+END
+
+
+
