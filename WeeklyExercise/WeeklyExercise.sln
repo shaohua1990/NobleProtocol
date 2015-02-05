@@ -24,7 +24,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WeeklyExercise", "http://lo
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DalAndErrorHandling", "..\Essential\DalAndErrorHandling\DalAndErrorHandling.csproj", "{A9F4C4E7-9F7D-4C17-BBF4-637F0D94B092}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeeklyExerciseDalAndErrorHandling", "..\Essential\DalAndErrorHandling\WeeklyExerciseDalAndErrorHandling.csproj", "{A9F4C4E7-9F7D-4C17-BBF4-637F0D94B092}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExerciseCom", "ExerciseCom\ExerciseCom.csproj", "{B3B7D315-F6F7-4E07-9821-14027D62BF68}"
 EndProject

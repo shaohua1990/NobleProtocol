@@ -25,7 +25,11 @@ namespace ExerciseCom
 
         public bool Write()
         {
-            string sql = "insert into record values(@memberId,@timestamp,@running,@pushup,@situp,@reading)";
+            string sql;
+            if(Helper.GetAppSetting("environment") == "online")
+                sql = "insert into weeklyexerciserecord values(@memberId,@timestamp,@running,@pushup,@situp,@reading)";
+            else
+                sql = "insert into record values(@memberId,@timestamp,@running,@pushup,@situp,@reading)";                
             dal.ConnectDB();
             dal.SetSqlCommand(sql);
             dal.AddParam("@memberId",MemberId, SqlDbType.Int);
@@ -41,7 +45,11 @@ namespace ExerciseCom
 
         public List<object> ReadForHomeDisplay()
         {
-            string sql = "select * from record where memberId = @memberId and timestamp between @lastFriday and @now";
+            string sql;
+            if(Helper.GetAppSetting("environment") == "online") 
+                sql = "select * from weeklyexerciserecord where memberId = @memberId and timestamp between @lastFriday and @now";
+            else
+                sql = "select * from record where memberId = @memberId and timestamp between @lastFriday and @now";
             DateTime now = DateTime.Now;
             DateTime lastFriday = GetLastFridayDate(now);
 
@@ -72,7 +80,15 @@ namespace ExerciseCom
 
         public List<object> ReadTotalForLastWeek()
         {
-            string sql = "select sum(running) as total_running, " +
+            string sql;
+            if(Helper.GetAppSetting("environment") == "online")
+                sql = "select sum(running) as total_running, " +
+                         "sum(pushup) as total_pushup, " +
+                         "sum(situp) as total_situp, " +
+                         "sum(reading) as total_reading " +
+                         "from weeklyexerciserecord where memberId = @memberId and timestamp between @lastlastFriday and @lastFriday";
+            else
+                sql = "select sum(running) as total_running, " +
                          "sum(pushup) as total_pushup, " +
                          "sum(situp) as total_situp, " +
                          "sum(reading) as total_reading " +

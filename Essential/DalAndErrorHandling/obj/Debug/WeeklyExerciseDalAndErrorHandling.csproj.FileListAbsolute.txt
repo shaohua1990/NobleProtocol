@@ -1,0 +1,4 @@
+C:\ADrive\NobleProtocol\Essential\DalAndErrorHandling\bin\Debug\WeeklyExerciseDalAndErrorHandling.dll
+C:\ADrive\NobleProtocol\Essential\DalAndErrorHandling\bin\Debug\WeeklyExerciseDalAndErrorHandling.pdb
+C:\ADrive\NobleProtocol\Essential\DalAndErrorHandling\obj\Debug\WeeklyExerciseDalAndErrorHandling.dll
+C:\ADrive\NobleProtocol\Essential\DalAndErrorHandling\obj\Debug\WeeklyExerciseDalAndErrorHandling.pdb

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
-using DalAndErrorHandling;
+using System.Web.UI.WebControls; 
 using ExerciseCom;
+using WeeklyExerciseDalAndErrorHandling;
 
 public partial class web_friends_data : System.Web.UI.Page
 {
@@ -21,6 +21,7 @@ public partial class web_friends_data : System.Web.UI.Page
 
     private void GetFriendList()
     {
+        member.MemberId = int.Parse(Session["memberId"].ToString());
         var result = member.GetFriends();
         Response.Write(Helper.GetResponseJson(result));
     }

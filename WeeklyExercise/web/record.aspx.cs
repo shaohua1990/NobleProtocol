@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
-using DalAndErrorHandling;
+using System.Web.UI.WebControls; 
+using WeeklyExerciseDalAndErrorHandling;
 
 public partial class web_record : System.Web.UI.Page 
 {

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Xml;
 
-namespace DalAndErrorHandling
+namespace WeeklyExerciseDalAndErrorHandling
 {
     public class Template
     {

@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Web; 
 
-namespace DalAndErrorHandling
+namespace WeeklyExerciseDalAndErrorHandling
 {
     /// <summary>
     /// Summary description for CrpDebugErrorHelper

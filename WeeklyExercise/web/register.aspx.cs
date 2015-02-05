@@ -5,7 +5,7 @@ using System.Net;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using DalAndErrorHandling;
+using WeeklyExerciseDalAndErrorHandling;
 
 public partial class web_register : System.Web.UI.Page
 {

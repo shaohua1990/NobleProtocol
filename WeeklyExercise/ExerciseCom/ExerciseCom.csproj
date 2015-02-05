@@ -45,9 +45,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Essential\DalAndErrorHandling\DalAndErrorHandling.csproj">
+    <ProjectReference Include="..\..\Essential\DalAndErrorHandling\WeeklyExerciseDalAndErrorHandling.csproj">
       <Project>{a9f4c4e7-9f7d-4c17-bbf4-637f0d94b092}</Project>
-      <Name>DalAndErrorHandling</Name>
+      <Name>WeeklyExerciseDalAndErrorHandling</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

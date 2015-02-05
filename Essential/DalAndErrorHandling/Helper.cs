@@ -12,7 +12,7 @@ using System.Web;
 /// </summary>
 using System.Web.Script.Serialization;
 
-namespace DalAndErrorHandling
+namespace WeeklyExerciseDalAndErrorHandling
 {
     public class Helper
     { 

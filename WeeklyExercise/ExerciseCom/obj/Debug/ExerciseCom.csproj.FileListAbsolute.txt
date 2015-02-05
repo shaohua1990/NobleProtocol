@@ -1,7 +1,7 @@
 C:\ADrive\NobleProtocol\WeeklyExercise\ExerciseCom\bin\Debug\ExerciseCom.dll
 C:\ADrive\NobleProtocol\WeeklyExercise\ExerciseCom\bin\Debug\ExerciseCom.pdb
-C:\ADrive\NobleProtocol\WeeklyExercise\ExerciseCom\bin\Debug\DalAndErrorHandling.dll
-C:\ADrive\NobleProtocol\WeeklyExercise\ExerciseCom\bin\Debug\DalAndErrorHandling.pdb
 C:\ADrive\NobleProtocol\WeeklyExercise\ExerciseCom\obj\Debug\ExerciseCom.csprojResolveAssemblyReference.cache
 C:\ADrive\NobleProtocol\WeeklyExercise\ExerciseCom\obj\Debug\ExerciseCom.dll
 C:\ADrive\NobleProtocol\WeeklyExercise\ExerciseCom\obj\Debug\ExerciseCom.pdb
+C:\ADrive\NobleProtocol\WeeklyExercise\ExerciseCom\bin\Debug\WeeklyExerciseDalAndErrorHandling.dll
+C:\ADrive\NobleProtocol\WeeklyExercise\ExerciseCom\bin\Debug\WeeklyExerciseDalAndErrorHandling.pdb

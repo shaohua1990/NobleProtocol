@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
-using DalAndErrorHandling;
+using System.Web.UI.WebControls; 
 using ExerciseCom;
+using WeeklyExerciseDalAndErrorHandling;
 
 public partial class web_process_register : System.Web.UI.Page
 {

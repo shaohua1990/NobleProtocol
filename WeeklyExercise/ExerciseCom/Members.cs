@@ -4,8 +4,8 @@ using System.Data;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using DalAndErrorHandling;
+using System.Threading.Tasks; 
+using WeeklyExerciseDalAndErrorHandling;
 
 namespace ExerciseCom
 {
@@ -32,7 +32,11 @@ namespace ExerciseCom
 
         public bool Register()
         {
-            string sql = "insert into members values (@username,@password)";
+            string sql;
+            if(Helper.GetAppSetting("environment") == "online")
+                sql = "insert into weeklyexercisemembers values (@username,@password)";
+            else 
+                sql = "insert into members values (@username,@password)"; 
             dal.ConnectDB();
             dal.SetSqlCommand(sql);
             dal.AddParam("@username", Name, SqlDbType.VarChar);
@@ -44,7 +48,11 @@ namespace ExerciseCom
 
         public bool Login()
         {
-            string sql = "select memberId from members where username=@username and password=@password";
+            string sql;
+            if(Helper.GetAppSetting("environment") == "online")
+                sql = "select memberId from weeklyexercisemembers where username=@username and password=@password";
+            else
+                sql = "select memberId from members where username=@username and password=@password";
             dal.ConnectDB();
             dal.SetSqlCommand(sql);
             dal.AddParam("@username", Name, SqlDbType.VarChar);
@@ -61,7 +69,11 @@ namespace ExerciseCom
 
         public int GetMemberIdByName()
         {
-            string sql = "select memberId from members where username = @username";
+            string sql;
+            if (Helper.GetAppSetting("environment") == "online")
+                sql = "select memberId from weeklyexercisemembers where username = @username";
+            else
+                sql = "select memberId from members where username = @username"; 
             dal.ConnectDB();
             dal.SetSqlCommand(sql);
             dal.AddParam("@username", Name, SqlDbType.VarChar);
@@ -73,9 +85,14 @@ namespace ExerciseCom
 
         public List<object> GetFriends()
         {
-            string sql = "select memberId, username from members";
+            string sql;
+            if (Helper.GetAppSetting("environment") == "online")
+                sql = "select memberId, username from weeklyexercisemembers where memberId != @memberId";
+            else
+                sql = "select memberId, username from members where memberId != @memberId"; 
             dal.ConnectDB();
             dal.SetSqlCommand(sql);
+            dal.AddParam("@memberId",MemberId,SqlDbType.Int);
             DataTable dt = dal.GetDataTableWithParam();
             dal.CloseCn();
             List<object> result = new List<object>();

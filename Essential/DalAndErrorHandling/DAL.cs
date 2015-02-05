@@ -6,7 +6,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;  
 
-namespace DalAndErrorHandling
+namespace WeeklyExerciseDalAndErrorHandling
 {
     public class DAL
     {
